@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61624877672466174}
   - component: {fileID: 114633253746401644}
   m_Layer: 11
-  m_Name: magic
+  m_Name: PFMagic
   m_TagString: Magic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
