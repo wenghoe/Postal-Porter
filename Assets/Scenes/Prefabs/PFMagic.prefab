@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50696124127835318}
   - component: {fileID: 61624877672466174}
   - component: {fileID: 114633253746401644}
+  - component: {fileID: 114820116705048350}
   m_Layer: 11
   m_Name: PFMagic
   m_TagString: Magic
@@ -72,7 +73,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -101,6 +102,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 10, y: 10}
   direction: {x: 1, y: 0}
+--- !u!114 &114820116705048350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1667893392978776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c206b1bba2457a24fa33848f2ee3071b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212693967454059194
 SpriteRenderer:
   m_ObjectHideFlags: 1
