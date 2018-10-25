@@ -68,7 +68,11 @@ public class Magic : MonoBehaviour
             Move move = shotTransform.gameObject.GetComponent<Move>();
             if (move != null)
             {
-                move.direction = this.transform.right; // towards in 2D space is the right of the sprite
+                CharacterController2D cc2d = GetComponent<CharacterController2D>();
+                if (cc2d.GetFacing())
+                    move.direction = this.transform.right;
+                else
+                    move.direction = -this.transform.right;
             }
         }
     }

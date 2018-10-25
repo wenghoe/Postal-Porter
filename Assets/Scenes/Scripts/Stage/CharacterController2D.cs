@@ -143,4 +143,9 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+    public bool GetFacing()
+    {
+        return m_FacingRight;
+    }
 }
