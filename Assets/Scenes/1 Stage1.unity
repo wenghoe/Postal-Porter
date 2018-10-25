@@ -2861,7 +2861,7 @@ Transform:
   - {fileID: 2062533937}
   - {fileID: 1884148520}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &957339170
 GameObject:
@@ -5855,7 +5855,7 @@ Transform:
   - {fileID: 2074719978}
   - {fileID: 103440396}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1851976794
 Rigidbody2D:
