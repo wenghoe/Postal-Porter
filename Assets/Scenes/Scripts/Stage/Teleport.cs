@@ -13,8 +13,8 @@ public class Teleport : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        Destroy(gameObject, 3);
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {        
