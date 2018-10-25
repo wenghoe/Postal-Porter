@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleportScript : MonoBehaviour {
+public class Teleport : MonoBehaviour {
     //Transform target;
     //public PlayerObject Player
     GameObject player;

@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (shoot)
         {
-            MagicScript weapon = GetComponent<MagicScript>();
+            Magic weapon = GetComponent<Magic>();
             if (weapon != null)
             {
                 // false because the player is not an enemy

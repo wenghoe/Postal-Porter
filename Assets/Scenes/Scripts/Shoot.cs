@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootScript : MonoBehaviour {
+public class Shoot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

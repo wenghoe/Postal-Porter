@@ -3,7 +3,7 @@
 /// <summary>
 /// Launch projectile
 /// </summary>
-public class MagicScript : MonoBehaviour
+public class Magic : MonoBehaviour
 {
     //--------------------------------
     // 1 - Designer variables
@@ -65,7 +65,7 @@ public class MagicScript : MonoBehaviour
             //}
 
             // Make the weapon shot always towards it
-            MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
+            Move move = shotTransform.gameObject.GetComponent<Move>();
             if (move != null)
             {
                 move.direction = this.transform.right; // towards in 2D space is the right of the sprite
