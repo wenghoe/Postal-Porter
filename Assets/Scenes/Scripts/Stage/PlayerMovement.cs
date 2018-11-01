@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (shoot)
         {
+            animator.SetTrigger("Fire");
             Magic weapon = GetComponent<Magic>();
             if (weapon != null)
             {
