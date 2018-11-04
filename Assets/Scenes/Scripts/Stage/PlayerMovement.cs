@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
         animator.SetFloat("Horizontal", Input.GetAxisRaw("Horizontal"));
         
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
+        Debug.Log(Input.GetAxisRaw("Horizontal"));
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
