@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller;
     public float runSpeed = 40f;
+    public int gems = 0;
     float horizontalMove = 0f;
     bool jump = false;
     public Animator animator;
@@ -42,5 +43,14 @@ public class PlayerMovement : MonoBehaviour {
         // Move character
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
         jump = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("PickUp"))
+        {
+            gems++;
+            other.gameObject.SetActive(false);
+        }
     }
 }
