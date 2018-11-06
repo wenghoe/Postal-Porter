@@ -7,6 +7,7 @@ TagManager:
   - Magic
   - Teleport
   - Gem
+  - ShowOnPaused
   layers:
   - Default
   - TransparentFX
