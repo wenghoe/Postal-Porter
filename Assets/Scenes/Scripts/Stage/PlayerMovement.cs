@@ -1,17 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller;
     public float runSpeed = 40f;
-    public int gems = 0;
     float horizontalMove = 0f;
     bool jump = false;
     public Animator animator;
 
-	// Update is called once per frame
-	void Update () {
+    [SerializeField]
+    TextMeshProUGUI gemCounter;
+
+    int gemsNumber;
+
+    // Update is called once per frame
+    void Update () {
         animator.SetFloat("Horizontal", Input.GetAxisRaw("Horizontal"));
         
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
@@ -36,6 +42,8 @@ public class PlayerMovement : MonoBehaviour {
                 weapon.Attack(false);
             }
         }
+
+        gemCounter.text = gemsNumber.ToString();        
     }
 
     void FixedUpdate ()
@@ -47,10 +55,10 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("PickUp"))
+        if (other.gameObject.CompareTag("Gem"))
         {
-            gems++;
-            other.gameObject.SetActive(false);
+            gemsNumber++;
+            Destroy(other.gameObject);
         }
     }
 }
