@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 95016004765776570}
   - component: {fileID: 50627634191190304}
   - component: {fileID: 61802867316035740}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PFGem
   m_TagString: Gem
   m_Icon: {fileID: 0}
