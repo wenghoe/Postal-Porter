@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50627634191190304}
   - component: {fileID: 61802867316035740}
   m_Layer: 12
-  m_Name: PFGem
+  m_Name: Gem
   m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
