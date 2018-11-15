@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour {
-    //public Transform Player;
-    //public float minDist = 4f;
-    //public float maxDist = 4f;
-
     public bool isForward = true;
     void Start()
     {
