@@ -13,8 +13,12 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField]
     TextMeshProUGUI gemCounter;
+    [SerializeField]
+    TextMeshProUGUI healthCounter;
 
     int gemsNumber;
+    float magnitude = 1500;
+    int health = 3;
 
     // Update is called once per frame
     void Update () {
@@ -43,7 +47,8 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
-        gemCounter.text = gemsNumber.ToString();        
+        gemCounter.text = gemsNumber.ToString();
+        healthCounter.text = health.ToString();
     }
 
     void FixedUpdate ()
@@ -59,6 +64,15 @@ public class PlayerMovement : MonoBehaviour {
         {
             gemsNumber++;
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Vector3 force = transform.position - other.transform.position;
+            force.Normalize();
+            GetComponent<Rigidbody2D>().AddForce(force * magnitude);
+            //rigidbody.velocity *= -1;
+            health--;
         }
     }
 }
