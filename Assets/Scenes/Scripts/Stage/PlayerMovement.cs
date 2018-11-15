@@ -17,8 +17,9 @@ public class PlayerMovement : MonoBehaviour {
     TextMeshProUGUI healthCounter;
 
     int gemsNumber;
-    float magnitude = 1500;
+    float magnitude = 2000;
     int health = 3;
+    bool canMove = true;
 
     // Update is called once per frame
     void Update () {
@@ -53,9 +54,14 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate ()
     {
-        // Move character
+        if (!canMove)
+        {
+            horizontalMove = 0.0f;
+        }
+            // Move character
         controller.Move(horizontalMove * Time.fixedDeltaTime * Time.timeScale, false, jump);
         jump = false;
+                
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -71,8 +77,15 @@ public class PlayerMovement : MonoBehaviour {
             Vector3 force = transform.position - other.transform.position;
             force.Normalize();
             GetComponent<Rigidbody2D>().AddForce(force * magnitude);
-            //rigidbody.velocity *= -1;
             health--;
+            StartCoroutine(GotHit(2f));
         }
+    }
+
+    IEnumerator GotHit(float time)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(time);
+        canMove = true;        
     }
 }
