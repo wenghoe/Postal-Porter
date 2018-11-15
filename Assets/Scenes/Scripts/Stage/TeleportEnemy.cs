@@ -10,6 +10,7 @@ public class TeleportEnemy : MonoBehaviour {
         {
             float yoffset = 4f;            
             this.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + yoffset);
+            Destroy(col.gameObject);
         }
     }
 }
