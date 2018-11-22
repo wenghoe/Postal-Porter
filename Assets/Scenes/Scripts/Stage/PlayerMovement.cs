@@ -20,6 +20,16 @@ public class PlayerMovement : MonoBehaviour {
     float magnitude = 2000;
     int health = 3;
     bool canMove = true;
+    bool canHurt = true;
+    private Material mat;
+    private Color[] colors = { Color.white, Color.red };
+
+    public void Awake()
+    {
+
+        mat = GetComponent<SpriteRenderer>().material;
+
+    }
 
     // Update is called once per frame
     void Update () {
@@ -64,6 +74,20 @@ public class PlayerMovement : MonoBehaviour {
                 
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+
+        if (other.gameObject.CompareTag("Enemy") && canHurt)
+        {
+            Vector3 force = transform.position - other.transform.position;
+            force.Normalize();
+            GetComponent<Rigidbody2D>().AddForce(force * magnitude);
+            health--;
+            StartCoroutine(GotHit(0.5f));
+            StartCoroutine(Flash(1f, 0.05f));
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Gem"))
@@ -71,21 +95,29 @@ public class PlayerMovement : MonoBehaviour {
             gemsNumber++;
             Destroy(other.gameObject);
         }
-
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            Vector3 force = transform.position - other.transform.position;
-            force.Normalize();
-            GetComponent<Rigidbody2D>().AddForce(force * magnitude);
-            health--;
-            StartCoroutine(GotHit(2f));
-        }
     }
 
-    IEnumerator GotHit(float time)
+        IEnumerator GotHit(float time)
     {
         canMove = false;
         yield return new WaitForSeconds(time);
         canMove = true;        
+    }
+
+    IEnumerator Flash(float time, float intervalTime)
+    {
+        float elapsedTime = 0f;
+        int index = 0;
+        canHurt = false;
+        while (elapsedTime < time)
+        {
+            mat.color = colors[index % 2];
+
+            elapsedTime += Time.deltaTime;
+            index++;
+            yield return new WaitForSeconds(intervalTime);
+        }
+        mat.color = colors[0];
+        canHurt = true;
     }
 }

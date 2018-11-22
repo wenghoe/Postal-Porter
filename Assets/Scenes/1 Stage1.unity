@@ -3067,10 +3067,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1365484443935128, guid: 0e9418a614e9b594d985ee2cecb4e079, type: 2}
-      propertyPath: m_Name
-      value: Gem
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e9418a614e9b594d985ee2cecb4e079, type: 2}
   m_IsPrefabParent: 0
