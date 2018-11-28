@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Teleport : MonoBehaviour {
-    //Transform target;
-    //public PlayerObject Player
+    
     GameObject player;
+
+	GameObject teleportEffect;
     // Use this for initialization
     void Start () {
         player = GameObject.Find("Player");
@@ -13,13 +14,16 @@ public class Teleport : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Destroy(gameObject, 3);
+        Destroy(gameObject, 2);
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {        
         if (col.gameObject.tag == "Teleport")
         {
+			Destroy (this.gameObject);
+
+			col.GetComponent<ParticleSystem> ().Play ();
             player.transform.position = this.transform.position;
         }
     }
