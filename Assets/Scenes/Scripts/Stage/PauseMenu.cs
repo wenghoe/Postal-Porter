@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour {
-
-    public bool isPaused;
     public GameObject pauseMenuCanvas;
 
+	private enum State {Running, Pause};
+	private State currentState;
 	// Use this for initialization
 	void Start () {
-		
+		currentState = State.Running;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		if (isPaused)
+		if (currentState == State.Pause)
         {
             pauseMenuCanvas.SetActive(true);
             Time.timeScale = 0f;
@@ -26,7 +26,12 @@ public class PauseMenu : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            isPaused = !isPaused;
+			if (currentState == State.Pause) {
+				currentState = State.Running;
+			}
+			else{
+				currentState = State.Pause;
+			}
 
         }
 	}
