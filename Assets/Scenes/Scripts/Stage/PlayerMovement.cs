@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other)
-    {        
+    {
         if (other.gameObject.CompareTag("Gem"))
         {
             gemsNumber++;
@@ -99,11 +99,14 @@ public class PlayerMovement : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Checkpoint"))
         {
-            
-            lastCheckPoint = other.transform.position;
-            
-        }
 
+            lastCheckPoint = other.transform.position;
+            Destroy(other.gameObject);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    { 
         if (other.gameObject.CompareTag("Water"))
         {
             health--;
