@@ -9,6 +9,8 @@ TagManager:
   - Gem
   - ShowOnPaused
   - Enemy
+  - Water
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

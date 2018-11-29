@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour {
     bool canHurt = true;
     private Material mat;
     private Color[] colors = { Color.white, Color.red };
+    public Vector2 lastCheckPoint;
 
     public void Awake()
     {
@@ -89,15 +90,30 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other)
-    {
+    {        
         if (other.gameObject.CompareTag("Gem"))
         {
             gemsNumber++;
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.CompareTag("Checkpoint"))
+        {
+            
+            lastCheckPoint = other.transform.position;
+            
+        }
+
+        if (other.gameObject.CompareTag("Water"))
+        {
+            health--;
+            StartCoroutine(GotHit(0.5f));
+            StartCoroutine(Flash(1f, 0.05f));
+            this.transform.position = lastCheckPoint;
+        }
     }
 
-        IEnumerator GotHit(float time)
+    IEnumerator GotHit(float time)
     {
         canMove = false;
         yield return new WaitForSeconds(time);
