@@ -4,11 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
+	public Animator transitionAnim;
 
 	public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		StartCoroutine (LoadScene ());
     }
+
+	IEnumerator LoadScene() {
+		transitionAnim.SetTrigger ("end");
+		yield return new WaitForSeconds (1.5f);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+	}
 
     public void QuitGame()
     {
