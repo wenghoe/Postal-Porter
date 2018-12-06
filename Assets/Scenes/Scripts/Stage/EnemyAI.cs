@@ -32,8 +32,7 @@ public class EnemyAI : MonoBehaviour {
         }
 
         transform.position = Vector2.Lerp(pointA, pointB, time);
-        Vector2 localScale = transform.localScale;
-
+    
         
     }
 
