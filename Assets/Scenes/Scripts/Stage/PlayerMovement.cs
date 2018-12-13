@@ -82,9 +82,9 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Enemy") && canHurt)
         {
             Vector2 direction = (transform.position - other.transform.position).normalized;            
-            direction.y = 0;
+            direction.y = 0.0002f;
             rb.AddForce(direction * magnitude);
-            rb.velocity = new Vector2(0, 5.0f);
+            //rb.velocity = new Vector2(0, 5.0f);
             health--;
             StartCoroutine(GotHit(0.5f));
             StartCoroutine(Flash(1f, 0.05f));

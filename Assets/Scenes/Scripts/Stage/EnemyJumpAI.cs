@@ -5,12 +5,13 @@ using UnityEngine;
 public class EnemyJumpAI : MonoBehaviour {
     
     public float m_JumpForce = 400f;
-    public Animator animator;
+    private Animator animator;
     private Rigidbody2D m_Rigidbody2D;    
 
     void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
 	// Use this for initialization
@@ -21,15 +22,17 @@ public class EnemyJumpAI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        animator.SetFloat("VelocityY", m_Rigidbody2D.velocity.y);
+        Debug.Log(m_Rigidbody2D.velocity.y);
     }
 
     IEnumerator JumpTime()
     {
         while (true)
         {            
-            yield return new WaitForSeconds(2);            
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));            
+            yield return new WaitForSeconds(2);
+            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            //Debug.Log(animator.parameters.ToString());
         }
     }
 }
