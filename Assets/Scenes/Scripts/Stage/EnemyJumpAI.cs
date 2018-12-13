@@ -22,10 +22,7 @@ public class EnemyJumpAI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (onGround)
-            animator.SetFloat("velocityY", 0);
-        else
-            animator.SetFloat("velocityY", 1);
+
     }
 
     IEnumerator JumpTime()
