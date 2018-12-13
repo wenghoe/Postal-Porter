@@ -6,6 +6,7 @@ public class Ready : MonoBehaviour {
 	public GameObject readyText;
 	public GameObject audioBGM;
 
+    bool isReady = false;
 	// Use this for initialization
 	void Start () 
 	{
@@ -13,17 +14,27 @@ public class Ready : MonoBehaviour {
 	}
 
 	void Update() {
-	}
+        if (!isReady)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            Destroy(this);
+        }
+    }
 
 	IEnumerator StartDelay()
-	{
-		Time.timeScale = 0;
+	{		
 		float pauseTime = Time.realtimeSinceStartup + 1f;
-		//yield return new WaitForSeconds(1);
+	
 		while (Time.realtimeSinceStartup < pauseTime) 
 			yield return 0;
-		Time.timeScale = 1;
-		readyText.SetActive (false);
+
+        isReady = true;
+        readyText.SetActive (false);
 		audioBGM.GetComponent<AudioSource> ().Play ();
+        
 	}
 }
