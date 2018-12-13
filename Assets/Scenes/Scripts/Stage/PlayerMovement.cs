@@ -17,19 +17,20 @@ public class PlayerMovement : MonoBehaviour {
     TextMeshProUGUI healthCounter;
 
     int gemsNumber;
-    float magnitude = 2000;
+    float magnitude = 3000;
     int health = 3;
     bool canMove = true;
     bool canHurt = true;
     private Material mat;
     private Color[] colors = { Color.white, Color.red };
+    private Rigidbody2D rb;
     public Vector2 lastCheckPoint;
 
     public void Awake()
     {
 
         mat = GetComponent<SpriteRenderer>().material;
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -80,9 +81,10 @@ public class PlayerMovement : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Enemy") && canHurt)
         {
-            Vector3 force = transform.position - other.transform.position;
-            force.Normalize();
-            GetComponent<Rigidbody2D>().AddForce(force * magnitude);
+            Vector2 direction = (transform.position - other.transform.position).normalized;            
+            direction.y = 0;
+            rb.AddForce(direction * magnitude);
+            rb.velocity = new Vector2(0, 5.0f);
             health--;
             StartCoroutine(GotHit(0.5f));
             StartCoroutine(Flash(1f, 0.05f));

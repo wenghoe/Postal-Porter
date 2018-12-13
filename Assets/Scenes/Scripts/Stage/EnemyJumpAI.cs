@@ -6,8 +6,7 @@ public class EnemyJumpAI : MonoBehaviour {
     
     public float m_JumpForce = 400f;
     public Animator animator;
-    private Rigidbody2D m_Rigidbody2D;
-    bool onGround = true;
+    private Rigidbody2D m_Rigidbody2D;    
 
     void Awake()
     {
@@ -28,12 +27,9 @@ public class EnemyJumpAI : MonoBehaviour {
     IEnumerator JumpTime()
     {
         while (true)
-        {
-            onGround = true;
-            yield return new WaitForSeconds(2);
-            onGround = false;
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-            
+        {            
+            yield return new WaitForSeconds(2);            
+            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));            
         }
     }
 }
