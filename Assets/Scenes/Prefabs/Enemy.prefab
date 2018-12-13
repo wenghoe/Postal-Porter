@@ -117,7 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd76be479d62ad438990b99f3e63428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isForward: 1
   speed: 0.3
   pointA: {x: 13, y: 2}
   pointB: {x: 21, y: 2}
