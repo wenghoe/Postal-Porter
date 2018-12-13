@@ -24,6 +24,7 @@ public class Teleport : MonoBehaviour {
 			Destroy (this.gameObject);
 
 			col.GetComponent<ParticleSystem> ().Play ();
+            col.GetComponent<AudioSource>().Play();
             player.transform.position = this.transform.position;
         }
     }
