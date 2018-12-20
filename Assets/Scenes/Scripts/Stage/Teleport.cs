@@ -21,8 +21,6 @@ public class Teleport : MonoBehaviour {
     {        
         if (col.gameObject.tag == "Teleport")
         {
-			Destroy (this.gameObject);
-
 			col.GetComponent<ParticleSystem> ().Play ();
             col.GetComponent<AudioSource>().Play();
             player.transform.position = this.transform.position;

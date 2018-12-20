@@ -9079,6 +9079,66 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 5.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 5.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 5.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 5.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 5.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 5.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb35f0407e8a90b48a1d68308ab75937, type: 2}
   m_IsPrefabParent: 0
@@ -9322,8 +9382,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98fb39ca7a4011d4e80ae2527c7c84b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUpDown: 1
-  distanceUpDown: 1
+  speedUpDown: 2
+  distanceUpDown: 2
 --- !u!1 &445918101
 GameObject:
   m_ObjectHideFlags: 0
@@ -14714,7 +14774,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4605904548905156, guid: eb35f0407e8a90b48a1d68308ab75937, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 51
+      value: 50.34
       objectReference: {fileID: 0}
     - target: {fileID: 4605904548905156, guid: eb35f0407e8a90b48a1d68308ab75937, type: 2}
       propertyPath: m_LocalPosition.y
@@ -18227,11 +18287,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4036069402277608, guid: 8a96bcb1b96a8c141ab3596bb0d5cfef, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.44
+      value: 3.98
       objectReference: {fileID: 0}
     - target: {fileID: 4036069402277608, guid: 8a96bcb1b96a8c141ab3596bb0d5cfef, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.66
       objectReference: {fileID: 0}
     - target: {fileID: 4036069402277608, guid: 8a96bcb1b96a8c141ab3596bb0d5cfef, type: 2}
       propertyPath: m_LocalPosition.z
