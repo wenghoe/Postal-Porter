@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     private Material mat;
     private Color[] colors = { Color.white, Color.red };
     private Rigidbody2D rb;
-    public Vector2 lastCheckPoint;
+    private Vector2 lastCheckPoint;
 
     public void Awake()
     {
@@ -96,6 +96,7 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Gem"))
         {
             gemsNumber++;
+            other.GetComponent<AudioSource>().Play();
             Destroy(other.gameObject);
         }
 
