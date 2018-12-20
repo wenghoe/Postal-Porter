@@ -9039,6 +9039,26 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 5.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 5.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198915542014384682, guid: eb35f0407e8a90b48a1d68308ab75937,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb35f0407e8a90b48a1d68308ab75937, type: 2}
   m_IsPrefabParent: 0
@@ -18336,7 +18356,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4347419032530898, guid: 3b8caf0090d8a664e91890a63e4b3e9c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.8
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4347419032530898, guid: 3b8caf0090d8a664e91890a63e4b3e9c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -20414,7 +20434,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4347419032530898, guid: 3b8caf0090d8a664e91890a63e4b3e9c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.6252356
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4347419032530898, guid: 3b8caf0090d8a664e91890a63e4b3e9c, type: 2}
       propertyPath: m_LocalPosition.z
