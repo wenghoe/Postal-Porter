@@ -13,6 +13,7 @@ public class ClearStage : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
 		if (other.gameObject.CompareTag ("Player")) {
+			this.enabled = false;
 			StartCoroutine (ShowClear (2f));
 		}
     }
