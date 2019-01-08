@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour {
             gemsNumber++;
 			other.enabled = false;
             other.GetComponent<AudioSource>().Play();
-            Destroy(other.gameObject, 0.1f);
+            Destroy(other.gameObject, 2f);
         }
 
         if (other.gameObject.CompareTag("Checkpoint"))
