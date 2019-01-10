@@ -5,8 +5,7 @@ public class Move : MonoBehaviour
 {
     public Vector2 speed = new Vector2(10, 10);
     public Vector2 direction = new Vector2(-1, 0);
-    public bool stopObject = false;
-    public float delay = 10;
+    public bool stopObject = false;    
     public bool isStopped = false;
 
     private Vector2 movement;
