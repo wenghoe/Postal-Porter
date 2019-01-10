@@ -112,16 +112,23 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Gem"))
         {
             gemsNumber++;
-			other.enabled = false;
+            other.enabled = false;
             other.GetComponent<AudioSource>().Play();
             Destroy(other.gameObject, 0.2f);
         }
 
         if (other.gameObject.CompareTag("Checkpoint"))
         {
-            
+
             lastCheckPoint = other.transform.position;
             other.enabled = false;
+        }
+    }
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Recharge"))
+        {
+            portals++;
         }
     }
 
@@ -134,6 +141,7 @@ public class PlayerMovement : MonoBehaviour {
             StartCoroutine(GotHit(0.5f));
             StartCoroutine(Flash(1f, 0.05f));   
         }
+
     }
 
     IEnumerator GotHit(float time)

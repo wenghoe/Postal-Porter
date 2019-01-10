@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Water
   - Checkpoint
+  - Recharge
   layers:
   - Default
   - TransparentFX
