@@ -84,7 +84,6 @@ public class PlayerMovement : MonoBehaviour {
             Vector2 direction = (transform.position - other.transform.position).normalized;            
             direction.y = 0.0002f;
             rb.AddForce(direction * magnitude);
-            //rb.velocity = new Vector2(0, 5.0f);
             health--;
             StartCoroutine(GotHit(0.5f));
             StartCoroutine(Flash(1f, 0.05f));
@@ -103,9 +102,9 @@ public class PlayerMovement : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Checkpoint"))
         {
-
+            
             lastCheckPoint = other.transform.position;
-            Destroy(other.gameObject);
+            other.enabled = false;
         }
     }
 
@@ -114,9 +113,9 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Water"))
         {
             health--;
+            StartCoroutine(ReturnToLastCheckpoint(0.5f));
             StartCoroutine(GotHit(0.5f));
-            StartCoroutine(Flash(1f, 0.05f));
-            this.transform.position = lastCheckPoint;
+            StartCoroutine(Flash(1f, 0.05f));   
         }
     }
 
@@ -125,6 +124,12 @@ public class PlayerMovement : MonoBehaviour {
         canMove = false;
         yield return new WaitForSeconds(time);
         canMove = true;        
+    }
+
+    IEnumerator ReturnToLastCheckpoint(float time)
+    {
+        yield return new WaitForSeconds(time);
+        this.transform.position = lastCheckPoint;
     }
 
     IEnumerator Flash(float time, float intervalTime)
