@@ -15,10 +15,13 @@ public class PlayerMovement : MonoBehaviour {
     TextMeshProUGUI gemCounter;
     [SerializeField]
     TextMeshProUGUI healthCounter;
+    [SerializeField]
+    TextMeshProUGUI portalCounter;
 
     int gemsNumber;
     float magnitude = 3000;
     int health = 3;
+    int portals = 3;
     bool canMove = true;
     bool canHurt = true;
     private Material mat;
@@ -61,7 +64,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         bool portal = Input.GetButtonDown("Fire3");
-        if (portal)
+        if (portal && portals > 0)
         {
             animator.SetTrigger("Fire");
             Portal weapon = GetComponent<Portal>();
@@ -70,10 +73,12 @@ public class PlayerMovement : MonoBehaviour {
                 // false because the player is not an enemy
                 weapon.Attack(false);
             }
+            portals--;
         }
 
         gemCounter.text = gemsNumber.ToString();
         healthCounter.text = health.ToString();
+        portalCounter.text = portals.ToString();
     }
 
     void FixedUpdate ()

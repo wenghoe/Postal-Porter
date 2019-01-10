@@ -5,10 +5,7 @@ using UnityEngine;
 public class Portal : MonoBehaviour {
 
     public Transform portalPrefab;
-
     public float shootingRate = 0.25f;
-    public int portalsRemaining = 3;
-
     private float shootCooldown;
 
     void Start()
@@ -26,7 +23,7 @@ public class Portal : MonoBehaviour {
 
     public void Attack(bool isEnemy)
     {
-        if (CanAttack && portalsRemaining > 0)
+        if (CanAttack)
         {
             shootCooldown = shootingRate;
 
@@ -46,7 +43,6 @@ public class Portal : MonoBehaviour {
                 else
                     move.direction = -this.transform.right;
             }
-            portalsRemaining--;
         }
     }
 
