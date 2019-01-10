@@ -60,6 +60,18 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
+        bool portal = Input.GetButtonDown("Fire3");
+        if (portal)
+        {
+            animator.SetTrigger("Fire");
+            Portal weapon = GetComponent<Portal>();
+            if (weapon != null)
+            {
+                // false because the player is not an enemy
+                weapon.Attack(false);
+            }
+        }
+
         gemCounter.text = gemsNumber.ToString();
         healthCounter.text = health.ToString();
     }
