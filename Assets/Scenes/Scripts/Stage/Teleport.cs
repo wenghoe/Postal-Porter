@@ -14,7 +14,7 @@ public class Teleport : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Destroy(gameObject, 2);
+        Destroy(this.gameObject, 1f);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -24,6 +24,7 @@ public class Teleport : MonoBehaviour {
 			col.GetComponent<ParticleSystem> ().Play ();
             col.GetComponent<AudioSource>().Play();
             player.transform.position = this.transform.position;
+            Destroy(this.gameObject);
         }
     }
 }
