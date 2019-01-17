@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     float magnitude = 3000;
     int health = 3;
     int portals = 3;
+    int maxPortals = 5;
     bool canMove = true;
     bool canHurt = true;
     private Material mat;
@@ -123,12 +124,13 @@ public class PlayerMovement : MonoBehaviour {
             lastCheckPoint = other.transform.position;
             other.enabled = false;
         }
-    }
-    void OnTriggerStay2D(Collider2D other)
-    {
+
         if (other.gameObject.CompareTag("Recharge"))
         {
-            portals++;
+            if (portals <= maxPortals)
+                portals++;
+            other.enabled = false;
+            Destroy(other.gameObject, 0.2f);
         }
     }
 
