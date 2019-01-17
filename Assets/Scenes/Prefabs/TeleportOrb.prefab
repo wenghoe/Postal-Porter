@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 198915542014384682}
   - component: {fileID: 199172514951932280}
   - component: {fileID: 82770884973762954}
+  - component: {fileID: 114605071437967054}
   m_Layer: 11
   m_Name: TeleportOrb
   m_TagString: Teleport
@@ -39,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1637435541101372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 40.27, y: 2.04, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -139,6 +140,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114605071437967054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637435541101372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20c501aa95b2564ab21dd6b3932b945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationDirection: {x: 0, y: 0, z: 1}
+  smoothTime: 3
 --- !u!198 &198915542014384682
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3588,8 +3602,8 @@ SpriteRenderer:
   m_SortingLayerID: 1817153909
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3dec6952ae175ec489db5acd6fdbc68b, type: 3}
-  m_Color: {r: 0.71444845, g: 0.17955235, b: 0.9044118, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 22e99fcff6cb2cd4c9eeee36b24ca615, type: 3}
+  m_Color: {r: 0.48235294, g: 0.12941177, b: 0.7764706, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
