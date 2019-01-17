@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 198547339997723634}
   - component: {fileID: 114472114380368120}
   - component: {fileID: 58589866246301440}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: PFPortal
   m_TagString: Teleport
   m_Icon: {fileID: 0}
