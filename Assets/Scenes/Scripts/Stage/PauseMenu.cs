@@ -3,36 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour {
-    public GameObject pauseMenuCanvas;
+    public GameObject pauseText;
+    public GameObject audioBGM;
+    GameManager GM;
 
-	private enum State {Running, Pause};
-	private State currentState;
-	// Use this for initialization
-	void Start () {
-		currentState = State.Running;
-	}
+    void Awake()
+    {
+        GM = GameManager.Instance;
+        pauseText.SetActive(false);
+    }
 
 	// Update is called once per frame
 	void Update () {
-		if (currentState == State.Pause)
-        {
-            pauseMenuCanvas.SetActive(true);
-            Time.timeScale = 0f;
-        } else
-        {
-            pauseMenuCanvas.SetActive(false);
-            Time.timeScale = 1f;
-        }
-
         if (Input.GetKeyDown(KeyCode.P))
-        {
-			if (currentState == State.Pause) {
-				currentState = State.Running;
-			}
-			else{
-				currentState = State.Pause;
-			}
-
+        {            
+			if (GM.GetGameState() == GameState.Pause) {
+                GM.SetGameState(GameState.Game);
+                pauseText.SetActive(false);
+                Time.timeScale = 1f;
+                audioBGM.GetComponent<AudioSource>().UnPause();
+            }
+            else if (GM.GetGameState() == GameState.Game)
+            {
+                GM.SetGameState(GameState.Pause);
+                pauseText.SetActive(true);
+                Time.timeScale = 0f;
+                audioBGM.GetComponent<AudioSource>().Pause();
+            }
         }
 	}
 }

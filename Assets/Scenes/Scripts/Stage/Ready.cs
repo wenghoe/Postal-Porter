@@ -5,10 +5,17 @@ using UnityEngine;
 public class Ready : MonoBehaviour {
 	public GameObject readyText;
 	public GameObject audioBGM;
-
+    GameManager GM;
     bool isReady = false;
-	// Use this for initialization
-	void Start () 
+
+    void Awake()
+    {
+        GM = GameManager.Instance;
+        GM.SetGameState(GameState.Intro);
+    }
+
+    // Use this for initialization
+    void Start () 
 	{
 		StartCoroutine ("StartDelay");
 	}
@@ -21,6 +28,7 @@ public class Ready : MonoBehaviour {
         else
         {
             Time.timeScale = 1f;
+            GM.SetGameState(GameState.Game);
             Destroy(this);
         }
     }
