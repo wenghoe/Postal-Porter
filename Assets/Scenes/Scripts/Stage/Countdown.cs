@@ -18,6 +18,12 @@ public class Countdown : MonoBehaviour
     void Update()
     {
         timeCounter.text = ("" + timeLeft);
+		if (timeLeft == 0) {
+			StopCoroutine("LoseTime");
+			GameObject soundObject = GameObject.Find ("BGM");
+			AudioSource audioSource = soundObject.GetComponent<AudioSource>();
+			audioSource.Stop();
+		}
     }
 
     IEnumerator LoseTime()
