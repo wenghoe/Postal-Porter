@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Ready : MonoBehaviour {
 	public GameObject readyText;
-	public GameObject audioBGM;
     GameManager GM;
     bool isReady = false;
 
@@ -42,7 +41,9 @@ public class Ready : MonoBehaviour {
 
         isReady = true;
         readyText.SetActive (false);
-		audioBGM.GetComponent<AudioSource> ().Play ();
+		GameObject soundObject = GameObject.Find ("BGM");
+		AudioSource audioSource = soundObject.GetComponent<AudioSource>();
+		audioSource.Play ();
         
 	}
 }
