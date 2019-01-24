@@ -87,6 +87,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (health == 0)
         {
+            canMove = false;
             GM.SetGameState(GameState.GameOver);
             StartCoroutine(ShowOver (2f));
         }
