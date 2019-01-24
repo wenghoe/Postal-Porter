@@ -6,10 +6,16 @@ using UnityEngine.SceneManagement;
 public class ClearStage : MonoBehaviour {
 	public GameObject goalUICanvas;
 	public Animator transitionAnim;
+    GameManager GM;
 
-	void Start () {
+    void Start () {
 		goalUICanvas.SetActive(false);
 	}
+
+    public void Awake()
+    {
+        GM = GameManager.Instance;
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,7 +28,8 @@ public class ClearStage : MonoBehaviour {
 	IEnumerator ShowClear(float time)
 	{
 		goalUICanvas.SetActive (true);
-		transitionAnim.SetTrigger ("end");
+        GM.SetGameState(GameState.Goal);
+        transitionAnim.SetTrigger ("end");
 		GameObject soundObject = GameObject.Find ("BGM");
 		AudioSource audioSource = soundObject.GetComponent<AudioSource>();
 		audioSource.Stop();

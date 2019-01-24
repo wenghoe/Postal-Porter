@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public enum GameState { NullState, Intro, Game, Pause, Goal }
+public enum GameState { NullState, Intro, Game, Pause, GameOver, Goal }
 public delegate void OnStateChangeHandler();
 
 internal class GameManager

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller;
@@ -29,12 +30,15 @@ public class PlayerMovement : MonoBehaviour {
     private Color[] colors = { Color.white, Color.red };
     private Rigidbody2D rb;
     private Vector2 lastCheckPoint;
+    public GameObject overText;
+    GameManager GM;
 
     public void Awake()
     {
 
         mat = GetComponent<SpriteRenderer>().material;
         rb = GetComponent<Rigidbody2D>();
+        GM = GameManager.Instance;
     }
 
     // Update is called once per frame
@@ -80,12 +84,19 @@ public class PlayerMovement : MonoBehaviour {
         gemCounter.text = gemsNumber.ToString();
         healthCounter.text = health.ToString();
         portalCounter.text = portals.ToString();
+
+        if (health == 0)
+        {
+            GM.SetGameState(GameState.GameOver);
+            StartCoroutine(ShowOver (2f));
+        }
     }
 
     void FixedUpdate ()
     {
         if (!canMove)
         {
+            canMove = true;
             horizontalMove = 0.0f;
         }
             // Move character
@@ -139,6 +150,10 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Water"))
         {
             health--;
+            if (health == 0)
+            {
+                return;
+            }
             StartCoroutine(ReturnToLastCheckpoint(0.5f));
             StartCoroutine(GotHit(0.5f));
             StartCoroutine(Flash(1f, 0.05f));   
@@ -167,12 +182,22 @@ public class PlayerMovement : MonoBehaviour {
         while (elapsedTime < time)
         {
             mat.color = colors[index % 2];
-
             elapsedTime += Time.deltaTime;
             index++;
             yield return new WaitForSeconds(intervalTime);
         }
         mat.color = colors[0];
         canHurt = true;
+    }
+
+    IEnumerator ShowOver(float time)
+    {        
+        overText.SetActive(true);
+        
+        GameObject soundObject = GameObject.Find("BGM");
+        AudioSource audioSource = soundObject.GetComponent<AudioSource>();
+        audioSource.Stop();
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene("0 MainMenu");
     }
 }
