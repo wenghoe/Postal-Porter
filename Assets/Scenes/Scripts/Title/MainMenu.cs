@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour {
 	public Animator transitionAnim;
@@ -22,4 +23,13 @@ public class MainMenu : MonoBehaviour {
         Debug.Log("Quit");
         Application.Quit();
     }
+
+	void Update()
+	{
+		if (EventSystem.current.currentSelectedGameObject == null)
+		{
+			Debug.Log("Reselecting first input");
+			EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
+		}
+	}
 }
